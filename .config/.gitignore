@@ -1,0 +1,6 @@
+*
+!.gitignore
+
+# Whitelist the different configurations within .config/ here
+!nvim/
+!nvim/**
