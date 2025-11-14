@@ -45,3 +45,6 @@ vim.api.nvim_create_autocmd("VimEnter", {
   end
 })
 
+-- show relative line numbers
+vim.opt.relativenumber = true  
+
