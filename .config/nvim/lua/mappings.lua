@@ -4,9 +4,6 @@ require "nvchad.mappings"
 
 local map = vim.keymap.set
 
-map("n", ";", ":", { desc = "CMD enter command mode" })
-map("i", "jk", "<ESC>")
-
 -- Close floating windows or clear highlights on <Esc> 
 map("n", "<Esc>", function()
   local closed = false
@@ -20,4 +17,6 @@ map("n", "<Esc>", function()
     vim.cmd("nohlsearch")
   end
 end, { desc = "close floating window or clear highlights" })
+
+vim.keymap.set('n', '<leader>k', vim.diagnostic.open_float, { desc = 'Show LSP error for current line' })
 
