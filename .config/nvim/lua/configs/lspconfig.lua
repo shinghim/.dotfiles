@@ -17,4 +17,10 @@ vim.lsp.config("gopls", {
 })
 
 -- Start servers automatically
-vim.lsp.enable({ "gopls" })
+vim.lsp.enable({
+  "gopls",
+  "rust-analyzer",
+  "terraform-ls",
+  "lua-language-server",
+})
+
