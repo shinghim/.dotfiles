@@ -18,6 +18,6 @@ return {
     })
 
     vim.api.nvim_set_hl(0, "NvimTreeOpenedFile", { fg = "#88c0d0", bg = "#2a2a2a", bold = true })
-    vim.api.nvim_set_hl(0, "NvimTreeCursorLine", { bg = "#3a3a4a" })
+    vim.api.nvim_set_hl(0, "NvimTreeCursorLine", { fg = "#2a2a2a", bg = "#d9d8cc", bold = true })
   end,
 }
