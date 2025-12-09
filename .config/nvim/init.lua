@@ -21,7 +21,6 @@ require("lazy").setup({
     branch = "v2.5",
     import = "nvchad.plugins",
   },
-
   { import = "plugins" },
 }, lazy_config)
 
@@ -35,15 +34,6 @@ require "autocmds"
 vim.schedule(function()
   require "mappings"
 end)
-
-vim.api.nvim_create_autocmd("VimEnter", {
-  callback = function()
-    -- only open NvimTree if no files were passed to Neovim (normal startup)
-    if vim.fn.argc() == 0 then
-      vim.cmd("NvimTreeToggle")
-    end
-  end
-})
 
 -- show relative line numbers
 vim.opt.relativenumber = true  
