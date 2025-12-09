@@ -8,12 +8,28 @@ local capabilities = require("nvchad.configs.lspconfig").capabilities
 vim.lsp.config("gopls", {
   on_attach = on_attach,
   capabilities = capabilities,
+  filetypes = { "go", "gomod", "gowork", "gotmpl" },
   settings = {
     gopls = {
       analyses = { unusedparams = true },
       staticcheck = true,
     },
   },
+})
+
+vim.lsp.config("rust-analyzer", {
+  cmd = { "rust-analyzer" },
+  filetypes = { "rust" }
+})
+
+vim.lsp.config("terraform-ls", {
+  cmd = { "terraform-ls", "serve" },
+  filetypes = { "terraform", "tf", "terraform-vars" },
+})
+
+vim.lsp.config("lua-language-server", {
+  cmd = { "lua-language-server" },
+  filetypes = { "lua" }
 })
 
 -- Start servers automatically
