@@ -9,10 +9,3 @@ vim.api.nvim_create_autocmd("VimEnter", {
   end
 })
 
--- Write the buffer when leaving Insert mode
-vim.api.nvim_create_autocmd("InsertLeave", {
-  callback = function()
-    vim.cmd("w")
-  end,
-})
-
