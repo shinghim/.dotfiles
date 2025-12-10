@@ -18,18 +18,19 @@ vim.lsp.config("gopls", {
 })
 
 vim.lsp.config("rust-analyzer", {
-  cmd = { "rust-analyzer" },
   filetypes = { "rust" }
 })
 
 vim.lsp.config("terraform-ls", {
-  cmd = { "terraform-ls", "serve" },
   filetypes = { "terraform", "tf", "terraform-vars" },
 })
 
 vim.lsp.config("lua-language-server", {
-  cmd = { "lua-language-server" },
   filetypes = { "lua" }
+})
+
+vim.lsp.config("pyright", {
+  filetypes = { "python" }
 })
 
 -- Start servers automatically
@@ -38,5 +39,6 @@ vim.lsp.enable({
   "rust-analyzer",
   "terraform-ls",
   "lua-language-server",
+  "pyright"
 })
 
