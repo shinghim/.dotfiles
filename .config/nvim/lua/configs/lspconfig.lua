@@ -33,12 +33,17 @@ vim.lsp.config("pyright", {
   filetypes = { "python" }
 })
 
+vim.lsp.config("dockerls", {
+  filetypes = { "dockerfile" }
+})
+
 -- Start servers automatically
 vim.lsp.enable({
   "gopls",
   "rust-analyzer",
   "terraform-ls",
   "lua-language-server",
-  "pyright"
+  "pyright",
+  "dockerls",
 })
 
