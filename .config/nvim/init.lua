@@ -36,5 +36,5 @@ vim.schedule(function()
 end)
 
 -- show relative line numbers
-vim.opt.relativenumber = true  
+vim.opt.relativenumber = true
 
