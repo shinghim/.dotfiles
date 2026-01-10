@@ -16,5 +16,22 @@ return {
     "folke/persistence.nvim",
     event = "BufReadPre",
     opts = { dir = vim.fn.stdpath("state") .. "/sessions/" },
+  },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      ensure_installed = { "lua", "vim", "vimdoc", "rust", "go", "python", "terraform", "dockerfile" },
+      highlight = { enable = false},
+    },
+  },
+  {
+    "nvim-treesitter/nvim-treesitter-context",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    event = { "BufReadPost", "BufNewFile" },
+    opts = {
+      enable = true,
+      max_lines = 3,
+      min_window_height = 20,
+    },
   }
 }
