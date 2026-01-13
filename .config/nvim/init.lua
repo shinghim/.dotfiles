@@ -35,6 +35,10 @@ vim.schedule(function()
   require "mappings"
 end)
 
+-- Visual overrides that get applied after everything else gets loaded
+vim.api.nvim_set_hl(0, "NvimTreeOpenedFile", { fg = "#88c0d0", bg = "#2a2a2a", bold = true })
+vim.api.nvim_set_hl(0, "NvimTreeCursorLine", { fg = "#2a2a2a", bg = "#d9d8cc", bold = true })
+
 -- show relative line numbers
 vim.opt.relativenumber = true
 
