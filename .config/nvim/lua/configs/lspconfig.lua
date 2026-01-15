@@ -49,6 +49,12 @@ vim.lsp.config("dockerls", {
   filetypes = { "dockerfile" }
 })
 
+vim.lsp.config("asm-lsp", {
+  cmd = { "asm-lsp" },
+  capabilities = capabilities,
+  filetypes = { "asm", "nasm", "s", "S" }
+})
+
 -- Start servers automatically
 vim.lsp.enable({
   "gopls",
@@ -57,4 +63,5 @@ vim.lsp.enable({
   "lua-language-server",
   "pyright",
   "dockerls",
+  "asm-lsp",
 })
