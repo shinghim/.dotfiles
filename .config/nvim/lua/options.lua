@@ -6,3 +6,7 @@ require "nvchad.options"
 -- o.cursorlineopt ='both' -- to enable cursorline!
 vim.o.statusline = "%F"
 
+-- show relative line numbers
+vim.o.relativenumber = true
+
+
