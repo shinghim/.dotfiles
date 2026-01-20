@@ -21,7 +21,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = { "lua", "vim", "vimdoc", "rust", "go", "python", "terraform", "dockerfile" },
-      highlight = { enable = false},
+      highlight = { enable = true},
     },
   },
   {
