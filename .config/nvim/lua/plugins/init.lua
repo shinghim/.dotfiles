@@ -13,11 +13,6 @@ return {
     end,
   },
   {
-    "folke/persistence.nvim",
-    event = "BufReadPre",
-    opts = { dir = vim.fn.stdpath("state") .. "/sessions/" },
-  },
-  {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = { "lua", "vim", "vimdoc", "rust", "go", "python", "terraform", "dockerfile" },
