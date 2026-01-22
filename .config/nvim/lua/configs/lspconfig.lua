@@ -1,7 +1,44 @@
--- Load NvChad defaults for LSP
-require("nvchad.configs.lspconfig").defaults()
-local on_attach    = require("nvchad.configs.lspconfig").on_attach
-local capabilities = require("nvchad.configs.lspconfig").capabilities
+local map = vim.keymap.set
+
+local capabilities = require("cmp_nvim_lsp").default_capabilities(
+  vim.lsp.protocol.make_client_capabilities()
+)
+-- local capabilities = vim.lsp.protocol.make_client_capabilities()
+-- capabilities.textDocument.completion.completionItem = {
+--   documentationFormat = { "markdown", "plaintext" },
+--   snippetSupport = true,
+--   preselectSupport = true,
+--   insertReplaceSupport = true,
+--   labelDetailsSupport = true,
+--   deprecatedSupport = true,
+--   commitCharactersSupport = true,
+--   tagSupport = { valueSet = { 1 } },
+--   resolveSupport = {
+--     properties = {
+--       "documentation",
+--       "detail",
+--       "additionalTextEdits",
+--     },
+--   },
+-- }
+
+local on_attach = function(_, bufnr)
+  local function opts(desc)
+    return { buffer = bufnr, desc = "LSP " .. desc }
+  end
+
+  map("n", "gD", vim.lsp.buf.declaration, opts "Go to declaration")
+  map("n", "gd", vim.lsp.buf.definition, opts "Go to definition")
+  map("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, opts "Add workspace folder")
+  map("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, opts "Remove workspace folder")
+
+  map("n", "<leader>wl", function()
+    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+  end, opts "List workspace folders")
+
+  map("n", "<leader>D", vim.lsp.buf.type_definition, opts "Go to type definition")
+  map("n", "<leader>ra", vim.lsp.buf.rename, { desc = "LSP rename" })
+end
 
 -- Set up on_attach for all LSP servers via LspAttach autocmd
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -11,7 +48,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
--- Use new Neovim 0.11+ API
 vim.lsp.config("gopls", {
   capabilities = capabilities,
   filetypes = { "go", "gomod", "gowork", "gotmpl" },
@@ -34,8 +70,9 @@ vim.lsp.config("terraform-ls", {
   filetypes = { "terraform", "tf", "terraform-vars" },
 })
 
-vim.lsp.config("lua-language-server", {
+vim.lsp.config("lua_ls", {
   capabilities = capabilities,
+  cmd = { "lua-language-server" },
   filetypes = { "lua" }
 })
 
@@ -60,7 +97,7 @@ vim.lsp.enable({
   "gopls",
   "rust-analyzer",
   "terraform-ls",
-  "lua-language-server",
+  "lua_ls",
   "pyright",
   "dockerls",
   "asm-lsp",
