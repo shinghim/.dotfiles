@@ -10,6 +10,9 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
+require "options"
+require "autocmds"
+
 local lazy_config = require "configs.lazy"
 
 -- load plugins
@@ -19,9 +22,6 @@ require("lazy").setup({
 }, lazy_config)
 
 vim.cmd("colorscheme kanagawa")
-
-require "options"
-require "autocmds"
 
 vim.schedule(function()
   require "mappings"

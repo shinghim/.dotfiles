@@ -37,7 +37,6 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     config = function()
       require "configs.lspconfig"
-      require "configs.cmp"
     end,
   },
 
@@ -78,6 +77,12 @@ return {
   },
 
   {
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    opts = require("configs.lualine")
+  },
+
+  {
     "akinsho/bufferline.nvim",
     version = "*",
     dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -100,10 +105,6 @@ return {
         },
         config = function(_, opts)
           require("nvim-autopairs").setup(opts)
-
-          -- setup cmp for autopairs
-          local cmp_autopairs = require "nvim-autopairs.completion.cmp"
-          require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
         end,
       },
 
@@ -112,8 +113,13 @@ return {
         "hrsh7th/cmp-nvim-lua",
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-buffer",
+        "hrsh7th/vim-vsnip",
+        "hrsh7th/cmp-vsnip",
         "https://codeberg.org/FelipeLema/cmp-async-path.git"
       }
     },
+    config = function()
+      require("configs.cmp")
+    end,
   },
 }

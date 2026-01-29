@@ -1,5 +1,3 @@
-vim.o.statusline = "%F"
-
 vim.opt.termguicolors = true
 -- show relative line numbers
 vim.o.relativenumber = true

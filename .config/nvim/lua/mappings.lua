@@ -106,4 +106,3 @@ map("n", "<Esc>", function()
 end, { desc = "close floating window or clear highlights" })
 
 vim.keymap.set('n', '<leader>k', vim.diagnostic.open_float, { desc = 'Show LSP error for current line' })
-
