@@ -21,10 +21,6 @@ map("n", "<leader>n", "<cmd>set nu!<CR>", { desc = "toggle line number" })
 map("n", "<leader>rn", "<cmd>set rnu!<CR>", { desc = "toggle relative number" })
 map("n", "<leader>ch", "<cmd>NvCheatsheet<CR>", { desc = "toggle nvcheatsheet" })
 
-map({ "n", "x" }, "<leader>fm", function()
-  require("conform").format { lsp_fallback = true }
-end, { desc = "general format file" })
-
 -- global lsp mappings
 map("n", "<leader>ds", vim.diagnostic.setloclist, { desc = "LSP diagnostic loclist" })
 
@@ -46,7 +42,6 @@ map("n", "<leader>fz", "<cmd>Telescope current_buffer_fuzzy_find<CR>", { desc = 
 map("n", "<leader>cm", "<cmd>Telescope git_commits<CR>", { desc = "telescope git commits" })
 map("n", "<leader>gt", "<cmd>Telescope git_status<CR>", { desc = "telescope git status" })
 map("n", "<leader>pt", "<cmd>Telescope terms<CR>", { desc = "telescope pick hidden term" })
-map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "telescope find files" })
 map(
   "n",
   "<leader>fa",
@@ -78,8 +73,8 @@ map("n", "<leader>wk", function()
 end, { desc = "whichkey query lookup" })
 
 -- bufferline
-vim.keymap.set('n', '<Tab>',  '<Cmd>BufferLineCycleNext<CR>', {silent = true})
-vim.keymap.set('n', '<S-Tab>', '<Cmd>BufferLineCyclePrev<CR>', {silent = true})
+vim.keymap.set('n', '<Tab>', '<Cmd>BufferLineCycleNext<CR>', { silent = true })
+vim.keymap.set('n', '<S-Tab>', '<Cmd>BufferLineCyclePrev<CR>', { silent = true })
 
 -- this closes the active bufferline tab and cycles to the next one
 vim.keymap.set('n', '<leader>x', function()
@@ -91,7 +86,7 @@ end, { silent = true })
 -- add yours here
 local map = vim.keymap.set
 
--- Close floating windows or clear highlights on <Esc> 
+-- Close floating windows or clear highlights on <Esc>
 map("n", "<Esc>", function()
   local closed = false
   for _, win in ipairs(vim.api.nvim_list_wins()) do
@@ -104,5 +99,11 @@ map("n", "<Esc>", function()
     vim.cmd("nohlsearch")
   end
 end, { desc = "close floating window or clear highlights" })
+
+vim.keymap.set("n", "<leader>ff", function()
+  vim.lsp.buf.format({ bufnr = 0 })
+end, {
+  desc = "Format buffer",
+})
 
 vim.keymap.set('n', '<leader>k', vim.diagnostic.open_float, { desc = 'Show LSP error for current line' })

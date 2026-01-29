@@ -1,9 +1,4 @@
 return {
-  {
-    "stevearc/conform.nvim",
-    -- event = 'BufWritePre', -- uncomment for format on save
-    opts = require "configs.conform",
-  },
 
   -- file managing , picker etc
   {
@@ -78,6 +73,7 @@ return {
 
   {
     'nvim-lualine/lualine.nvim',
+    event = "BufReadPre",
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     opts = require("configs.lualine")
   },
