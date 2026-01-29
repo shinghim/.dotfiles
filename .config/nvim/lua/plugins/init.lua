@@ -54,7 +54,7 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
-    event = { "BufReadPost", "BufNewFile" },
+    lazy = false,
     cmd = "Telescope",
     opts = function()
       return require "configs.telescope"

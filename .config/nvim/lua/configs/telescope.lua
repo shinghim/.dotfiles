@@ -1,22 +1,10 @@
-return {
-  defaults = {
-    prompt_prefix = "   ",
-    selection_caret = " ",
-    entry_prefix = " ",
-    sorting_strategy = "ascending",
-    layout_config = {
-      horizontal = {
-        prompt_position = "top",
-        preview_width = 0.55,
-      },
-      width = 0.87,
-      height = 0.80,
-    },
-    mappings = {
-      n = { ["q"] = require("telescope.actions").close },
-    },
-  },
+require("telescope").setup{}
 
-  extensions_list = { "themes", "terms" },
-  extensions = {},
-}
+vim.keymap.set("n", "<leader>fd", require("telescope.builtin").find_files, { desc = "Find files (root)" })
+vim.keymap.set("n", "<leader>en", function()
+  require("telescope.builtin").find_files {
+    cwd = vim.fn.stdpath("config")
+  }
+end,
+  { desc = "Edit Neovim" })
+
