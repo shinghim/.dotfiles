@@ -106,11 +106,17 @@ return {
         "hrsh7th/cmp-buffer",
         "hrsh7th/vim-vsnip",
         "hrsh7th/cmp-vsnip",
-        "https://codeberg.org/FelipeLema/cmp-async-path.git"
+        "https://codeberg.org/FelipeLema/cmp-async-path.git",
+        "hrsh7th/cmp-nvim-lsp-signature-help"
       }
     },
     config = function()
       require("configs.cmp")
     end,
+  },
+  {
+    "lewis6991/gitsigns.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    opts = {},
   },
 }

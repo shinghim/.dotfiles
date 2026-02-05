@@ -1,4 +1,3 @@
--- Set up nvim-cmp.
 local cmp = require'cmp'
 
 cmp.setup({
@@ -49,6 +48,7 @@ cmp.setup({
   }),
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
+    { name = 'nvim_lsp_signature_help' },
     { name = 'vsnip' }, -- For vsnip users.
     -- { name = 'luasnip' }, -- For luasnip users.
     -- { name = 'ultisnips' }, -- For ultisnips users.
