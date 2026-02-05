@@ -1,6 +1,5 @@
 local map = vim.keymap.set
 
-map("i", "<C-b>", "<ESC>^i", { desc = "move beginning of line" })
 map("i", "<C-e>", "<End>", { desc = "move end of line" })
 map("i", "<C-h>", "<Left>", { desc = "move left" })
 map("i", "<C-l>", "<Right>", { desc = "move right" })
@@ -17,12 +16,9 @@ map("n", "<Esc>", "<cmd>noh<CR>", { desc = "general clear highlights" })
 map("n", "<C-s>", "<cmd>w<CR>", { desc = "general save file" })
 map("n", "<C-c>", "<cmd>%y+<CR>", { desc = "general copy whole file" })
 
-map("n", "<leader>n", "<cmd>set nu!<CR>", { desc = "toggle line number" })
-map("n", "<leader>rn", "<cmd>set rnu!<CR>", { desc = "toggle relative number" })
-map("n", "<leader>ch", "<cmd>NvCheatsheet<CR>", { desc = "toggle nvcheatsheet" })
-
--- global lsp mappings
-map("n", "<leader>ds", vim.diagnostic.setloclist, { desc = "LSP diagnostic loclist" })
+-- Highlighting
+map("n", "<leader>h", vim.lsp.buf.document_highlight, { desc = "Highlight references" })
+map("n", "<leader>H", vim.lsp.buf.clear_references, { desc = "Unhighlight references" })
 
 -- Comment
 map("n", "<leader>/", "gcc", { desc = "toggle comment", remap = true })
@@ -34,19 +30,6 @@ map("n", "<leader>e", "<cmd>NvimTreeFocus<CR>", { desc = "nvimtree focus window"
 
 -- terminal
 map("t", "<C-x>", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })
-
--- TODO: Fix these when you figure out what you want to do with terminals
--- -- new terminals
--- map("n", "<leader>h", { desc = "terminal new horizontal term" })
---
--- map("n", "<leader>v", { desc = "terminal new vertical term" })
---
--- -- toggleable
--- map({ "n", "t" }, "<A-v>", { desc = "terminal toggleable vertical term" })
---
--- map({ "n", "t" }, "<A-h>", { desc = "terminal toggleable horizontal term" })
---
--- map({ "n", "t" }, "<A-i>", { desc = "terminal toggle floating term" })
 
 -- whichkey
 map("n", "<leader>wK", "<cmd>WhichKey <CR>", { desc = "whichkey all keymaps" })
@@ -80,6 +63,7 @@ map("n", "<Esc>", function()
   end
   if not closed then
     vim.cmd("nohlsearch")
+    vim.lsp.buf.clear_references()
   end
 end, { desc = "close floating window or clear highlights" })
 
