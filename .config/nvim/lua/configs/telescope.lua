@@ -6,7 +6,6 @@ vim.keymap.set("n", "<leader>fd", require("telescope.builtin").find_files, { des
 -- List mappings
 vim.keymap.set("n", "<leader>lr", require("telescope.builtin").lsp_references, { desc = "List references (root)" })
 vim.keymap.set("n", "<leader>lb", require("telescope.builtin").buffers, { desc = "List buffers" })
-vim.keymap.set("n", "<leader>lr", require("telescope.builtin").registers, { desc = "List registers" })
 vim.keymap.set("n", "<leader>lq", require("telescope.builtin").quickfix, { desc = "List quickfix items" })
 vim.keymap.set("n", "<leader>ld", function()
   require("telescope.builtin").diagnostics({ bufnr = 0 })
