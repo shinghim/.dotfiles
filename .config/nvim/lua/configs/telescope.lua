@@ -12,6 +12,10 @@ vim.keymap.set("n", "<leader>ld", function()
 end, { desc = "List diagnostics (current file)" })
 vim.keymap.set("n", "<leader>lc", require("telescope.builtin").git_status, { desc = "List changed files" })
 vim.keymap.set("n", "<leader>li", require("telescope.builtin").lsp_implementations, { desc = "List implementations" })
+
+-- Go-to mappings
+vim.keymap.set("n", "<leader>gt", require("telescope.builtin").lsp_type_definitions, { desc = "Go to type definition" })
+
 vim.keymap.set("n", "<leader>en", function()
     require("telescope.builtin").find_files {
       cwd = vim.fn.stdpath("config")
