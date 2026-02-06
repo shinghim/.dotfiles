@@ -121,4 +121,11 @@ return {
       require("configs.gitsigns")
     end,
   },
+  {
+    "rmagatti/auto-session",
+    lazy = false,
+    opts = function()
+      return require "configs.autosession"
+    end,
+  }
 }
