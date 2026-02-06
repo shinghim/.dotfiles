@@ -27,6 +27,7 @@ local on_attach = function(_, bufnr)
     return { buffer = bufnr, desc = "LSP " .. desc }
   end
 
+  map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code action" })
   map("n", "gd", vim.lsp.buf.definition, opts "Go to definition")
   map("n", "gD", vim.lsp.buf.declaration, opts "Go to declaration")
   map("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, opts "Add workspace folder")
