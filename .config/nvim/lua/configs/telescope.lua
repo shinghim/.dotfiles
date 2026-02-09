@@ -16,9 +16,3 @@ vim.keymap.set("n", "<leader>li", require("telescope.builtin").lsp_implementatio
 -- Go-to mappings
 vim.keymap.set("n", "<leader>gt", require("telescope.builtin").lsp_type_definitions, { desc = "Go to type definition" })
 
-vim.keymap.set("n", "<leader>en", function()
-    require("telescope.builtin").find_files {
-      cwd = vim.fn.stdpath("config")
-    }
-  end,
-  { desc = "Edit Neovim" })
