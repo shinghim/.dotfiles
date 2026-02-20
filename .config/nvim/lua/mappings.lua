@@ -39,20 +39,19 @@ map("n", "<leader>wk", function()
 end, { desc = "whichkey query lookup" })
 
 -- bufferline
-vim.keymap.set('n', '<Tab>', '<Cmd>BufferLineCycleNext<CR>', { silent = true })
-vim.keymap.set('n', '<S-Tab>', '<Cmd>BufferLineCyclePrev<CR>', { silent = true })
+map('n', '<Tab>', '<Cmd>BufferLineCycleNext<CR>', { silent = true })
+map('n', '<S-Tab>', '<Cmd>BufferLineCyclePrev<CR>', { silent = true })
 
 -- this closes the active bufferline tab and cycles to the next one
-vim.keymap.set('n', '<leader>x', function()
+map('n', '<leader>x', function()
   local cur = vim.api.nvim_get_current_buf()
   vim.cmd('BufferLineCycleNext')
   pcall(vim.api.nvim_buf_delete, cur, { force = false })
 end, { silent = true })
 
--- add yours here
-local map = vim.keymap.set
-
--- Close floating windows or clear highlights on <Esc>
+-- Terminal Mode: Go back to Normral Mode
+map('t', '<Esc>', '<C-\\><C-n>')
+-- Normal Mode: Close floating windows or clear highlights on <Esc>
 map("n", "<Esc>", function()
   local closed = false
   for _, win in ipairs(vim.api.nvim_list_wins()) do
@@ -67,10 +66,10 @@ map("n", "<Esc>", function()
   end
 end, { desc = "close floating window or clear highlights" })
 
-vim.keymap.set("n", "<leader>ff", function()
+map("n", "<leader>ff", function()
   vim.lsp.buf.format({ bufnr = 0 })
 end, {
   desc = "Format buffer",
 })
 
-vim.keymap.set('n', '<leader>k', vim.diagnostic.open_float, { desc = 'Show LSP error for current line' })
+map('n', '<leader>k', vim.diagnostic.open_float, { desc = 'Show LSP error for current line' })
