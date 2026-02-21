@@ -11,11 +11,6 @@ map("n", "<C-l>", "<C-w>l", { desc = "switch window right" })
 map("n", "<C-j>", "<C-w>j", { desc = "switch window down" })
 map("n", "<C-k>", "<C-w>k", { desc = "switch window up" })
 
-map("n", "<Esc>", "<cmd>noh<CR>", { desc = "general clear highlights" })
-
-map("n", "<C-s>", "<cmd>w<CR>", { desc = "general save file" })
-map("n", "<C-c>", "<cmd>%y+<CR>", { desc = "general copy whole file" })
-
 -- Highlighting
 map("n", "<leader>h", vim.lsp.buf.document_highlight, { desc = "Highlight references" })
 map("n", "<leader>H", vim.lsp.buf.clear_references, { desc = "Unhighlight references" })
@@ -24,19 +19,13 @@ map("n", "<leader>H", vim.lsp.buf.clear_references, { desc = "Unhighlight refere
 map("n", "<leader>/", "gcc", { desc = "toggle comment", remap = true })
 map("v", "<leader>/", "gc", { desc = "toggle comment", remap = true })
 
--- nvimtree
-map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>", { desc = "nvimtree toggle window" })
-map("n", "<leader>e", "<cmd>NvimTreeFocus<CR>", { desc = "nvimtree focus window" })
-
 -- terminal
 map("t", "<C-x>", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })
+map("n", "<leader>tv", "<cmd>vsplit | term<cr>", {desc = "New terminal (vertical)"})
+map("n", "<leader>th", "<cmd>split | term<cr>", {desc = "New terminal (horizontal)"})
 
 -- whichkey
 map("n", "<leader>wK", "<cmd>WhichKey <CR>", { desc = "whichkey all keymaps" })
-
-map("n", "<leader>wk", function()
-  vim.cmd("WhichKey " .. vim.fn.input "WhichKey: ")
-end, { desc = "whichkey query lookup" })
 
 -- bufferline
 map('n', '<Tab>', '<Cmd>BufferLineCycleNext<CR>', { silent = true })
