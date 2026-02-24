@@ -67,6 +67,7 @@ vim.lsp.config("rust-analyzer", {
 })
 
 vim.lsp.config("terraform-ls", {
+  cmd = { "terraform-ls", "serve" },
   capabilities = capabilities,
   filetypes = { "terraform", "tf", "terraform-vars" },
 })
