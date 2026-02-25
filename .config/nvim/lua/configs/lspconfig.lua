@@ -50,6 +50,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 vim.lsp.config("gopls", {
+  cmd = { "gopls" },
   capabilities = capabilities,
   filetypes = { "go", "gomod", "gowork", "gotmpl" },
   settings = {
@@ -73,17 +74,19 @@ vim.lsp.config("terraform-ls", {
 })
 
 vim.lsp.config("lua_ls", {
-  capabilities = capabilities,
   cmd = { "lua-language-server" },
+  capabilities = capabilities,
   filetypes = { "lua" }
 })
 
 vim.lsp.config("pyright", {
+  cmd = { "pyright-langserver", "--stdio" },
   capabilities = capabilities,
   filetypes = { "python" }
 })
 
 vim.lsp.config("dockerls", {
+  cmd = { "docker-langserver", "--stdio" },
   capabilities = capabilities,
   filetypes = { "dockerfile" }
 })
