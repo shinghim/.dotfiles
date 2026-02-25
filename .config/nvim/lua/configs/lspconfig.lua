@@ -94,6 +94,12 @@ vim.lsp.config("asm-lsp", {
   filetypes = { "asm", "nasm", "s", "S" }
 })
 
+vim.lsp.config("ts_ls", {
+  cmd = { "typescript-language-server", "--stdio" },
+  capabilities = capabilities,
+  filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
+})
+
 -- Start servers automatically
 vim.lsp.enable({
   "gopls",
@@ -103,4 +109,5 @@ vim.lsp.enable({
   "pyright",
   "dockerls",
   "asm-lsp",
+  "ts_ls",
 })
