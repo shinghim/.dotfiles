@@ -2,7 +2,8 @@ vim.opt.termguicolors = true
 -- show relative line numbers
 vim.o.relativenumber = true
 
--- NvChad below here -- 
+vim.opt.fillchars = { eob = " ", vert = "│", horiz = "─" }
+-- NvChad below here --
 local opt = vim.opt
 local o = vim.o
 local g = vim.g
@@ -23,7 +24,6 @@ o.smartindent = true
 o.tabstop = 2
 o.softtabstop = 2
 
-opt.fillchars = { eob = " " }
 o.ignorecase = true
 o.smartcase = true
 o.mouse = "a"

@@ -22,6 +22,8 @@ require("lazy").setup({
 }, lazy_config)
 
 vim.cmd("colorscheme kanagawa")
+-- Make the terminal borders a bit clearer
+vim.api.nvim_set_hl(0, "WinSeparator", { fg = "#363646" })
 
 vim.schedule(function()
   require "mappings"
