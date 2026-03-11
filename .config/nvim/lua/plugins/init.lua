@@ -127,5 +127,28 @@ return {
     opts = function()
       return require "configs.autosession"
     end,
-  }
+  },
+
+  -- Colorschemes
+  {
+    "rebelot/kanagawa.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("kanagawa").setup({
+        overrides = function(colors)
+          local theme = colors.theme
+          local palette = colors.palette
+
+          return {
+            Normal   = { bg = theme.ui.bg },
+            NormalNC = { bg = theme.ui.bg_dim },
+            WinSeparator = { fg = palette.sumiInk3 },
+          }
+        end,
+      })
+
+      vim.cmd("colorscheme kanagawa")
+    end,
+  },
 }
