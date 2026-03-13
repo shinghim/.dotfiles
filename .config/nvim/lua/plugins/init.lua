@@ -143,6 +143,8 @@ return {
           return {
             Normal   = { bg = theme.ui.bg },
             NormalNC = { bg = theme.ui.bg_dim },
+            NvimTreeNormal = { bg = theme.ui.bg },
+            NvimTreeNormalNC = { bg = theme.ui.bg_dim },
             WinSeparator = { fg = palette.sumiInk3 },
           }
         end,
