@@ -78,8 +78,8 @@ return {
     version = "*",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     event = "BufReadPre",
-    opts = function()
-      return require "configs.bufferline"
+    config = function()
+      require("configs.bufferline")
     end,
   },
 

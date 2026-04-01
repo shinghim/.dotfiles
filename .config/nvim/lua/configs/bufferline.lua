@@ -1,4 +1,6 @@
-return {
+local bufferline = require("bufferline")
+
+bufferline.setup({
   options = {
     offsets = {
       {
@@ -17,4 +19,6 @@ return {
     show_close_icon = true,
     diagnostics = "nvim_lsp",
   }
-}
+})
+
+vim.keymap.set("n", "<leader>co", "<cmd>BufferLineCloseOthers<cr>", { desc = "Close all other tabs"})
