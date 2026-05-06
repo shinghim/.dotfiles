@@ -103,6 +103,12 @@ vim.lsp.config("ts_ls", {
   filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
 })
 
+vim.lsp.config("markdown-oxide", {
+  cmd = {"markdown-oxide"},
+  capabilities = capabilities,
+  filetypes = { "markdown" },
+})
+
 -- Start servers automatically
 vim.lsp.enable({
   "gopls",
@@ -113,4 +119,5 @@ vim.lsp.enable({
   "dockerls",
   "asm-lsp",
   "ts_ls",
+  "markdown-oxide",
 })
