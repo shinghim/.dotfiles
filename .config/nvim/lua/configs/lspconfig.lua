@@ -103,6 +103,13 @@ vim.lsp.config("ts_ls", {
   filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
 })
 
+vim.lsp.config("just_ls", {
+  cmd = { "just-lsp" },
+  capabilities = capabilities,
+  filetypes = { "just" },
+})
+
+
 vim.lsp.config("markdown-oxide", {
   cmd = {"markdown-oxide"},
   capabilities = capabilities,
@@ -119,5 +126,6 @@ vim.lsp.enable({
   "dockerls",
   "asm-lsp",
   "ts_ls",
+  "just_ls",
   "markdown-oxide",
 })
