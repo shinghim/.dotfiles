@@ -109,11 +109,16 @@ vim.lsp.config("just_ls", {
   filetypes = { "just" },
 })
 
-
 vim.lsp.config("markdown-oxide", {
   cmd = {"markdown-oxide"},
   capabilities = capabilities,
   filetypes = { "markdown" },
+})
+
+vim.lsp.config("postgres-language-server", {
+  cmd = {"postgres-language-server", "lsp-proxy"},
+  capabilities = capabilities,
+  filetypes = {"sql"}
 })
 
 -- Start servers automatically
@@ -128,4 +133,5 @@ vim.lsp.enable({
   "ts_ls",
   "just_ls",
   "markdown-oxide",
+  "postgres-language-server",
 })
