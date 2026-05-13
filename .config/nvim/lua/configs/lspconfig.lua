@@ -76,7 +76,15 @@ vim.lsp.config("terraform-ls", {
 vim.lsp.config("lua_ls", {
   cmd = { "lua-language-server" },
   capabilities = capabilities,
-  filetypes = { "lua" }
+  filetypes = { "lua" },
+  settings = {
+    Lua = {
+      runtime = { version = "LuaJIT" },
+      workspace = {
+        library = { vim.env.VIMRUNTIME },
+      },
+    },
+  },
 })
 
 vim.lsp.config("pyright", {
