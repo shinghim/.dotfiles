@@ -12,9 +12,9 @@ map("n", "<leader>lq", require("telescope.builtin").quickfix, { desc = "List qui
 map("n", "<leader>ld", function()
   require("telescope.builtin").diagnostics({ bufnr = 0 })
 end, { desc = "List diagnostics (current file)" })
+map("n", "<leader>lD", require("telescope.builtin").diagnostics, { desc = "List diagnostics" })
 map("n", "<leader>lc", require("telescope.builtin").git_status, { desc = "List changed files" })
 map("n", "<leader>li", require("telescope.builtin").lsp_implementations, { desc = "List implementations" })
 
 -- Go-to mappings
 map("n", "<leader>gt", require("telescope.builtin").lsp_type_definitions, { desc = "Go to type definition" })
-
