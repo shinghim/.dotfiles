@@ -1,3 +1,5 @@
 config-file = keybinds
+config-file = font
 
+auto-update = off
 theme = Kanagawa Wave
