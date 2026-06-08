@@ -131,26 +131,25 @@ return {
 
   -- Colorschemes
   {
-    "rebelot/kanagawa.nvim",
+    "catppuccin/nvim",
+    name = "catppuccin",
     lazy = false,
     priority = 1000,
     config = function()
-      require("kanagawa").setup({
-        overrides = function(colors)
-          local theme = colors.theme
-          local palette = colors.palette
-
-          return {
-            Normal   = { bg = theme.ui.bg },
-            NormalNC = { bg = theme.ui.bg_dim },
-            NvimTreeNormal = { bg = theme.ui.bg },
-            NvimTreeNormalNC = { bg = theme.ui.bg_dim },
-            WinSeparator = { fg = palette.sumiInk3 },
-          }
-        end,
+      require("catppuccin").setup({
+        highlight_overrides = {
+          mocha = function(colors)
+            return {
+              Normal = { bg = colors.base },
+              NormalNC = { bg = colors.mantle },
+              NvimTreeNormal = { bg = colors.base },
+              NvimTreeNormalNC = { bg = colors.mantle },
+              WinSeparator = { fg = colors.surface0 },
+            }
+          end,
+        },
       })
-
-      vim.cmd("colorscheme kanagawa")
+      vim.cmd("colorscheme catppuccin-mocha")
     end,
   },
 }
