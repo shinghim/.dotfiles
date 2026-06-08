@@ -129,6 +129,15 @@ return {
     end,
   },
 
+  -- tmux
+  {
+    "christoomey/vim-tmux-navigator",
+    lazy = false,
+    config = function()
+      require("configs.tmux-navigator")
+    end,
+  },
+
   -- Colorschemes
   {
     "catppuccin/nvim",

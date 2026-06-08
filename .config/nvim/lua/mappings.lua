@@ -6,11 +6,6 @@ map("i", "<C-l>", "<Right>", { desc = "move right" })
 map("i", "<C-j>", "<Down>", { desc = "move down" })
 map("i", "<C-k>", "<Up>", { desc = "move up" })
 
-map("n", "<C-h>", "<C-w>h", { desc = "switch window left" })
-map("n", "<C-l>", "<C-w>l", { desc = "switch window right" })
-map("n", "<C-j>", "<C-w>j", { desc = "switch window down" })
-map("n", "<C-k>", "<C-w>k", { desc = "switch window up" })
-
 -- Highlighting
 map("n", "<leader>h", vim.lsp.buf.document_highlight, { desc = "Highlight references" })
 map("n", "<leader>H", vim.lsp.buf.clear_references, { desc = "Unhighlight references" })
