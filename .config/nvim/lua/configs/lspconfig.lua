@@ -64,7 +64,23 @@ vim.lsp.config("gopls", {
 vim.lsp.config("rust-analyzer", {
   cmd = { "rust-analyzer" },
   capabilities = capabilities,
-  filetypes = { "rust" }
+  filetypes = { "rust" },
+  settings = {
+    ["rust-analyzer"] = {
+      cargo = {
+        allFeatures = true,
+        buildScripts = {
+          enable = true,
+        },
+        checkOnSave = {
+          command = "check",
+        },
+        procMacro = {
+          enable = true,
+        }
+      }
+    }
+  }
 })
 
 vim.lsp.config("terraform-ls", {
@@ -118,15 +134,15 @@ vim.lsp.config("just_ls", {
 })
 
 vim.lsp.config("markdown-oxide", {
-  cmd = {"markdown-oxide"},
+  cmd = { "markdown-oxide" },
   capabilities = capabilities,
   filetypes = { "markdown" },
 })
 
 vim.lsp.config("postgres-language-server", {
-  cmd = {"postgres-language-server", "lsp-proxy"},
+  cmd = { "postgres-language-server", "lsp-proxy" },
   capabilities = capabilities,
-  filetypes = {"sql"}
+  filetypes = { "sql" }
 })
 
 -- Start servers automatically
