@@ -133,6 +133,9 @@ return {
   {
     "christoomey/vim-tmux-navigator",
     lazy = false,
+    init = function()
+      vim.g.tmux_navigator_no_wrap = 1
+    end,
     config = function()
       require("configs.tmux-navigator")
     end,
