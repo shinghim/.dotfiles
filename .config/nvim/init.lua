@@ -9,6 +9,12 @@ if not vim.uv.fs_stat(lazypath) then
 end
 
 vim.opt.rtp:prepend(lazypath)
+vim.api.nvim_create_autocmd("User", {
+  pattern = "LazyUpdate",
+  callback = function()
+    vim.fn.delete(vim.fn.stdpath("cache") .. "/luac", "rf")
+  end,
+})
 
 local lazy_config = require "configs.lazy"
 
@@ -23,4 +29,3 @@ require("lazy").setup({
 vim.schedule(function()
   require "mappings"
 end)
-
